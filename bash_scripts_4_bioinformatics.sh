@@ -1,6 +1,6 @@
 ##################################################
 ##						##
-##     Useful bash script for bioinformatics	##
+##    Useful bash scripts for bioinformatics	##
 ## 						##
 ##               Gian MN Benucci		##
 ##           gian.benucci@gmail.com		##
