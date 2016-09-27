@@ -10,6 +10,13 @@
 ##						##
 ##################################################
 
+## BASIC COMMANDS
+
+ # count lines (emulates "wc -l")
+ sed -n '$='
+
+## MORE ADVANCED COMMANDS ...to be continued!
+
 ## Convert a .fastq file to .fasta (NOTE: this assumes that each FASTQ entry spans only four lines as is customary)
 sed -n '1~4s/^@/>/p;2~4p' imputfilename.fastq > outputfilename.fasta
 
