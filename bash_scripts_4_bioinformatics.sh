@@ -73,7 +73,7 @@ echo "scale=1; 1/2" | bc ## this is for floating numbers
 ## Replace spaces in file names with underscore
 rename ' ' '_' *
 
-## Rename sequence header usinfìg awk
+## Rename sequence header using awk
 awk '/^>/{print ">whateveryouwant" ++i; next}{print}' < file.fasta
 
 
@@ -109,6 +109,8 @@ sed -e 's/\(^>.*$\)/#\1#/' file.fasta | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/
 
 
 
+## convert tab-delimited to csv
+tr "\\t" "," < otu_table.txt > otu_table.csv
 
 
 
