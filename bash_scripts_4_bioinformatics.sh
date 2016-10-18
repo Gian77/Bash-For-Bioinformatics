@@ -10,12 +10,28 @@
 ##						##
 ##################################################
 
+
+
 ## BASIC COMMANDS
+#*******************************************#
 
  # count lines (emulates "wc -l")
  sed -n '$='
 
+# count sequencs in fasta file
+grep -c "^>" sample1.fasta
+
+# count sequences in a fastq file
+grep -c "^@" sample1.fastq
+cat sample1.fq | echo $((`wc -l`/4))
+
+
+
+
+
 ## MORE ADVANCED COMMANDS ...to be continued!
+#*******************************************#
+
 
 ## Convert a .fastq file to .fasta (NOTE: this assumes that each FASTQ entry spans only four lines as is customary)
 sed -n '1~4s/^@/>/p;2~4p' imputfilename.fastq > outputfilename.fasta
