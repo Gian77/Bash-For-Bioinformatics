@@ -19,3 +19,8 @@
  sed -n '52p'                 # method 1
  sed '52!d'                   # method 2
  sed '52q;d'                  # method 3, efficient on large files
+
+
+
+# to convert a fastq file to fasta in a single line using sed
+sed '/^@/!d;s//>/;N' sample1.fq > sample1.fa
