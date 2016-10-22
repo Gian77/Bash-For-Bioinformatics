@@ -3,7 +3,7 @@
 ##    Useful bash scripts for bioinformatics	##
 ## 						##
 ##               Gian MN Benucci		##
-##           gian.benucci@gmail.com		##
+##       gian[dot]benucci[at]gmail[dot]com	##
 ##						##
 ##           East Lansing, Michigan		##
 ##            Settember 24th, 2016 		##
