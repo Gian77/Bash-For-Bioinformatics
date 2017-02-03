@@ -117,6 +117,9 @@ sed -e 's/\(^>.*$\)/#\1#/' file.fasta | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/
 tr "\\t" "," < otu_table.txt > otu_table.csv
 
 
+## counting reads among .fastq and fastq.gz files
+for fastq in *assembled.fastq; do echo "$fastq : `grep -c "^+$" $fastq`"; done > assembled_reads.counts
+for gz in *R1_001.fastq.gz; do echo "$gz : `gunzip -c $gz | grep -c "^+$"`"; done > raw_reads_R1.counts
 
 
 
