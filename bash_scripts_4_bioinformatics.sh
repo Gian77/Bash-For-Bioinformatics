@@ -122,7 +122,12 @@ for fastq in *assembled.fastq; do echo "$fastq : `grep -c "^+$" $fastq`"; done >
 for gz in *R1_001.fastq.gz; do echo "$gz : `gunzip -c $gz | grep -c "^+$"`"; done > raw_reads_R1.counts
 
 
+# remove column 3 of a .txt file
+awk '!($3="")' file1 > file2.txt
+cut -f1,1,3- file1.txt > file2.txt 
 
+# rearragne columns and invert postions, using tab as a comun delimiter 
+awk 'BEGIN {OFS="\t"}; '{ print $1,$2,$3,$4,$15 " " $14}' file1.txt > file2.txt
 
 
 
