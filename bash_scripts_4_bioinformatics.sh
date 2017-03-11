@@ -129,9 +129,8 @@ cut -f1,1,3- file1.txt > file2.txt
 # rearragne columns and invert postions, using tab as a comun delimiter 
 awk 'BEGIN {OFS="\t"}; '{ print $1,$2,$3,$4,$15 " " $14}' file1.txt > file2.txt
 
-
-
-
+# primtimg linearizied fastq
+zcat raw_data.fastq.gz | paste - - - - | head
 
 
 
