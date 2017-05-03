@@ -25,5 +25,11 @@ sed '/^@/!d;s//>/;N' sample1.fq > sample1.fa
 
 
 # replace simple characters using regexp, e.g. replacing - with _
-sed '/^>/s/-/_/g' in.fasta > out.fasta
+sed '/^>/s/-/_/g' input.fasta > out.fasta
+
+#if there is a dot "." you want to replace, you must use "\." as an escape trick.
+
+# remove last part of a read header after a space
+sed '/^@/s/\s.*$//' input.fastq > out.fastq
+
 
