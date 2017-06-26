@@ -26,11 +26,6 @@ grep -c "^@" sample1.fastq
 cat sample1.fq | echo $((`wc -l`/4))
 
 
-
-
-
-
-
 ## MORE ADVANCED COMMANDS ...to be continued!
 #*******************************************#
 
@@ -68,6 +63,10 @@ done
 
 ## Creating a md5 report for a series of file
 md5sum *.fastq > md5.txt
+
+## analyse content of entire folders 
+find -s somedir -type f -exec md5sum {} \; | md5sum
+tar -cf - somedir | md5sum
 
 ## Get a histogram of sequence lengths from FASTA/Q files 
 cat imputfile.fastq | awk '{if(NR%4==2) print length($1)}' | sort -n | uniq -c
