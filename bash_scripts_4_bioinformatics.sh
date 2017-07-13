@@ -132,6 +132,18 @@ awk 'BEGIN {OFS="\t"}; '{ print $1,$2,$3,$4,$15 " " $14}' file1.txt > file2.txt
 zcat raw_data.fastq.gz | paste - - - - | head
 
 
+# rename part of a file name across several files
+
+rename 's/test-this/REPLACESTRING/g' *
+
+# If you don't have rename use a for loop as shown below:
+
+for i in test-this*
+do
+mv "$i" "${i/test-this/foo}"
+done
+
+
 
 
 
