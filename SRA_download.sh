@@ -8,10 +8,6 @@ echo $line
 fastq-dump -I --split-files $line
 done < SraAccList.txt
 
-while read line; do
-echo $line
-fastq-dump -I --split-files $line
-done < SraAccList.txt
 
 
 
