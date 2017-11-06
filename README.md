@@ -1,2 +1,1 @@
-# bash_for_bioinformatics
-That's a collection of simple scripts and tricks to play with sequences.  
+In this repo you can find a a collection of simple scripts and bash tricks that help you to play with DNA sequences. Enjoy!
