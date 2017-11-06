@@ -1,13 +1,13 @@
 ##################################################
-##						                                        ##
-##       Some interesting sed scripts	          ##
-##                                        						##
-##               Gian MN Benucci		              ##
-##       gian[dot]benucci[at]gmail[dot]com	     ##
-##						                                        ##
-##           East Lansing, Michigan		           ##
-##            Settember 24th, 2016 		           ##
-##						                                        ##
+##						       
+##       Some interesting sed scripts	         
+##                                        					
+##               Gian MN Benucci		              
+##       gian[dot]benucci[at]gmail[dot]com	   
+##						                                        
+##           East Lansing, Michigan		          
+##            Settember 24th, 2016 		       
+##						                                      
 ##################################################
 
 
