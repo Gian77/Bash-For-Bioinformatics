@@ -1,6 +1,15 @@
-# Some interesting sed scripts
-# Compiled by Gian MN Benucci
-# gian.benucci[at]gmail[dot]com
+##################################################
+##						                                        ##
+##       Some interesting sed scripts	          ##
+##                                        						##
+##               Gian MN Benucci		              ##
+##       gian[dot]benucci[at]gmail[dot]com	     ##
+##						                                        ##
+##           East Lansing, Michigan		           ##
+##            Settember 24th, 2016 		           ##
+##						                                        ##
+##################################################
+
 
 # print first 10 lines of file (emulates "head")
  sed 10q
