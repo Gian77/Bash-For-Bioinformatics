@@ -26,7 +26,7 @@ grep -c "^@" sample1.fastq
 cat sample1.fq | echo $((`wc -l`/4))
 
 
-## MORE ADVANCED COMMANDS ...to be continued!
+## MORE ADVANCED COMMANDS
 #*******************************************#
 
 ## Convert a .fastq file to .fasta (NOTE: this assumes that each FASTQ entry spans only four lines as is customary)
@@ -115,11 +115,9 @@ sed -e 's/\(^>.*$\)/#\1#/' file.fasta | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/
 ## convert tab-delimited to csv
 tr "\\t" "," < otu_table.txt > otu_table.csv
 
-
 ## counting reads among .fastq and fastq.gz files
 for fastq in *assembled.fastq; do echo "$fastq : `grep -c "^+$" $fastq`"; done > assembled_reads.counts
 for gz in *R1_001.fastq.gz; do echo "$gz : `gunzip -c $gz | grep -c "^+$"`"; done > raw_reads_R1.counts
-
 
 # remove column 3 of a .txt file
 awk '!($3="")' file1 > file2.txt
@@ -131,13 +129,10 @@ awk 'BEGIN {OFS="\t"}; '{ print $1,$2,$3,$4,$15 " " $14}' file1.txt > file2.txt
 # primtimg linearizied fastq
 zcat raw_data.fastq.gz | paste - - - - | head
 
-
 # rename part of a file name across several files
-
 rename 's/test-this/REPLACESTRING/g' *
 
 # If you don't have rename use a for loop as shown below:
-
 for i in test-this*
 do
 mv "$i" "${i/test-this/foo}"
