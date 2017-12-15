@@ -41,4 +41,7 @@ sed '/^>/s/-/_/g' input.fasta > out.fasta
 # remove last part of a read header after a space
 sed '/^@/s/\s.*$//' input.fastq > out.fastq
 
+# this command will add some text to a sequence header of 3 words and 6 numbers
+sed 's/^\(>.*\)$/\1 somem text to add/' infile
+
 
