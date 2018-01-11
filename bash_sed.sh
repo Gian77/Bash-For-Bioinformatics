@@ -44,4 +44,9 @@ sed '/^@/s/\s.*$//' input.fastq > out.fastq
 # this command will add some text to a sequence header of 3 words and 6 numbers
 sed 's/^\(>.*\)$/\1 somem text to add/' infile
 
+# visualize a specific line or lines between an interval
+sed -n '14800132,14800155p;14800156q' infile.fasta
+
+
+
 
