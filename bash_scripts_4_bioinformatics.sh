@@ -22,8 +22,8 @@
 grep -c "^>" sample1.fasta
 
 # count sequences in a fastq file
-grep -c "^@" sample1.fastq
-cat sample1.fq | echo $((`wc -l`/4))
+grep -c "^@" example.fastq
+cat example.fastq | echo $(("wc -l"/4))
 
 
 ## MORE ADVANCED COMMANDS
