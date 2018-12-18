@@ -32,6 +32,7 @@
 # to convert a fastq file to fasta in a single line using sed
 sed '/^@/!d;s//>/;N' sample1.fq > sample1.fa
 
+sed -n '1~4s/^@/>/p;2~4p' test.fastq > test.fasta
 
 # replace simple characters using regexp, e.g. replacing - with _
 sed '/^>/s/-/_/g' input.fasta > out.fasta
@@ -46,6 +47,7 @@ sed 's/^\(>.*\)$/\1 somem text to add/' infile
 
 # visualize a specific line or lines between an interval
 sed -n '14800132,14800155p;14800156q' infile.fasta
+
 
 
 
