@@ -89,7 +89,7 @@ awk '/^>/{print ">whateveryouwant" ++i; next}{print}' < file.fasta
 
 ## add something to end of all header lines
 sed 's/>.*/>whateveryouwant/' file.fasta > outfile.fasta
-
+find SRA_R2_ITS/ -name '*.fastq' | wc -l
 ## add something after > of all header lines
 sed "s/>/>whateveryouwant/" input.fasta > output.fasta
 sed 's/^>/>SampleA/g' INFILE.fasta>OUTFILE.fasta
@@ -108,7 +108,7 @@ sed -e '/^>/s/$/@/' -e 's/^>/#/' file.fasta | tr -d '\n' | tr "#" "\n" | tr "@" 
 
 ## To extract ids from a sequence file
 grep -o -E "^>\w+" file.fasta | tr -d ">"
-
+find SRA_R2_ITS/ -name '*.fastq' | wc -l
 ## Linearize your sequences i.e. remove the sequence wrapping
 sed -e 's/\(^>.*$\)/#\1#/' file.fasta | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d'
 
@@ -137,6 +137,10 @@ for i in test-this*
 do
 mv "$i" "${i/test-this/foo}"
 done
+
+# count the number of fastq files in a repsitory 
+find YOUR_PATH/ -name '*.fastq' | wc -l
+
 
 
 
