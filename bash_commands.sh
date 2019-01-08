@@ -143,6 +143,12 @@ done
 # count the number of fastq files in a repsitory 
 find YOUR_PATH/ -name '*.fastq' | wc -l
 
+# Rename files inside a directory
+# adding R1 at the end of the file name before the extension .fastq
+for f in *fastq ; do NEW=${f%.fastq}R1.fastq; mv ${f} "${NEW}"; done
+
+
+
 
 
 
