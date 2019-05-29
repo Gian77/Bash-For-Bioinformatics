@@ -48,10 +48,9 @@ cat imputfile.fastq | awk '{if(NR%4==2) print length($1)}' > seqsfastq_length.tx
 cat imputfile.fasta | awk '{if(NR%4==0) print length($1)}' > seqsfasta_length.txt
 cat imputfile.fasta | awk '{if(NR%%4==2) print length(\$1)}' | sort -c
 
-## Count the total number of sequences present in each different .fasta files 
-for i in $(ls *.fasta);
-do grep -c "^>" $i;
-done
+## Count the total number of sequences present in each different read files 
+for i in $(ls *.fasta); do grep -c "^>" $i; done
+for i in `ls *.fastq.gz`; do echo $(zcat ${i} | wc -l)/4|bc; done
 
 ## give the mean of the lenght of the seqs contained in a .fasta file
 awk '{/>/&&++a||b+=length()}END{print b/a}' seqs.fna 
