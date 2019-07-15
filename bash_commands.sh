@@ -25,6 +25,8 @@ grep -c "^>" sample1.fasta
 grep -c "^@" example.fastq
 cat example.fastq | echo $(("wc -l"/4))
 
+Number of reads in multiple fastq.gz files 
+zcat *.fastq | echo $((`wc -l`/4))
 
 ## MORE ADVANCED COMMANDS
 #*******************************************#
@@ -127,7 +129,8 @@ cut -f1,1,3- file1.txt > file2.txt
 # rearragne columns and invert postions, using tab as a comun delimiter 
 awk 'BEGIN {OFS="\t"}; '{ print $1,$2,$3,$4,$15 " " $14}' file1.txt > file2.txt
 
-# primtimg linearizied fastq
+# primtimg linearizied fzcat *R1_ITS.fastq | echo $((`wc -l`/4))
+astq
 zcat raw_data.fastq.gz | paste - - - - | head
 
 # rename part of a file name across several files
