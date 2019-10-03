@@ -150,9 +150,10 @@ find YOUR_PATH/ -name '*.fastq' | wc -l
 for f in *fastq ; do NEW=${f%.fastq}R1.fastq; mv ${f} "${NEW}"; done
 
 
-
-
-
+# Rename file names bu addinf prefix or suffix words
+for i in *.fastq; do mv "$i" "ITS_R1_$i"; done
+for i in *.fastq;do mv $i ${i//ITS_R1_/}; done
+rename 's/\.fastq$/_16S_r2.fastq/' *fastq
 
 
 
