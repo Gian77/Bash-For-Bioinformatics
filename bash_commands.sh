@@ -88,6 +88,9 @@ rename ' ' '_' *
 ## Rename sequence header using awk
 awk '/^>/{print ">whateveryouwant" ++i; next}{print}' < file.fasta
 
+# remove evrything after the first <character>,in this case |
+cut -d '|' -f 1 < file.fastq 
+
 ## add something to end of all header lines
 sed 's/>.*/>whateveryouwant/' file.fasta > outfile.fasta
 find SRA_R2_ITS/ -name '*.fastq' | wc -l
