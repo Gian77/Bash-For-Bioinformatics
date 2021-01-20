@@ -1,22 +1,10 @@
-##################################################
-##						##
-##    Useful bash scripts for bioinformatics	##
-## 						##
-##               Gian MN Benucci		##
-##       gian[dot]benucci[at]gmail[dot]com	##
-##						##
-##           East Lansing, Michigan		##
-##            Settember 24th, 2016 		##
-##						##
-##################################################
+# Useful bash scripts for bioinformatics
+# This software is distributed under MIT License
+# © Copyright 2020, Gian M. N. Benucci 
+# gian[dot]benucci[at]gmail[dot]com
 
-
-
-## BASIC COMMANDS
-#*******************************************#
-
- # count lines (emulates "wc -l")
- sed -n '$='
+# count lines (emulates "wc -l")
+sed -n '$='
 
 # count sequencs in fasta file
 grep -c "^>" sample1.fasta
@@ -25,21 +13,18 @@ grep -c "^>" sample1.fasta
 grep -c "^@" example.fastq
 cat example.fastq | echo $(("wc -l"/4))
 
-Number of reads in multiple fastq.gz files 
+#Number of reads in multiple fastq.gz files 
 zcat *.fastq | echo $((`wc -l`/4))
 
-## MORE ADVANCED COMMANDS
-#*******************************************#
-
-## Convert a .fastq file to .fasta (NOTE: this assumes that each FASTQ entry spans only four lines as is customary)
+# Convert a .fastq file to .fasta (NOTE: this assumes that each FASTQ entry spans only four lines as is customary)
 sed -n '1~4s/^@/>/p;2~4p' imputfilename.fastq > outputfilename.fasta
 
-## extract sequences that are longer from 21 to 25 bp from a dataset
+# Extract sequences that are longer from 21 to 25 bp from a dataset
 cat your.fastq | paste - - - - | awk 'length($2)  >= 21 && length($2) <= 25' | sed 's/\t/\n/g' > filtered.fastq
 
 awk 'BEGIN {OFS = "\n"} {header = $0 ; getline seq ; getline qheader ; getline qseq ; if (length(seq) >= 21 && length(seq) <= 25) {print header, seq, qheader, qseq}}' < your.fastq > filtered.fastq
 
-## get the first 400 lines of a file
+# Get the first 400 lines of a file
 sed -n -e "1,400p" ITS_R1_otus_numbered.fasta > otus_NCBI.fasta 
 
 ## Count the total number of bases in a FASTA file
