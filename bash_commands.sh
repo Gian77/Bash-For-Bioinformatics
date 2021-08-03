@@ -143,6 +143,20 @@ for i in *.fastq; do mv "$i" "ITS_R1_$i"; done
 for i in *.fastq;do mv $i ${i//ITS_R1_/}; done
 rename 's/\.fastq$/_16S_r2.fastq/' *fastq
 
+# RENAMING FILES 
+rename sample sample_ *.dat
+rename 's/sample/sample_/' *.dat
+
+
+
+
+
+
+
+
+
+
+
 
 
 
