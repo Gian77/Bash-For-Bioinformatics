@@ -1,4 +1,4 @@
-* CONDA COMMANDS *
+#CONDA COMMANDS
 
 conda list
 conda activate py3
