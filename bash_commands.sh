@@ -3,6 +3,9 @@
 # © Copyright 2020, Gian M. N. Benucci 
 # gian[dot]benucci[at]gmail[dot]com
 
+# looking for files by name/extension
+find -name *demultiplexing*.sb
+
 # count lines (emulates "wc -l")
 sed -n '$='
 
