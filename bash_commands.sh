@@ -150,7 +150,9 @@ rename 's/\.fastq$/_16S_r2.fastq/' *fastq
 rename sample sample_ *.dat
 rename 's/sample/sample_/' *.dat
 
-
+for file in *\ *; do
+  mv "$file" "${file// /_}"
+done
 
 
 
