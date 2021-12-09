@@ -48,6 +48,12 @@ sed 's/^\(>.*\)$/\1 somem text to add/' infile
 # visualize a specific line or lines between an interval
 sed -n '14800132,14800155p;14800156q' infile.fasta
 
+# change first _ with . in Illumina fastq reads files
+for f in *fastq
+do sed '/^@/s/_/\./' "$f" > "$f.new"  &&  mv "$f.new" "$f"
+done
+
+
 
 
 
