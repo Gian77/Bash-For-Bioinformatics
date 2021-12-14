@@ -154,13 +154,11 @@ for file in *\ *; do
   mv "$file" "${file// /_}"
 done
 
+# remove evrything before the | pipe character in each line
+sed 's/^.*|//' names.txt > ids.txt 
 
-
-
-
-
-
-
+# remove evrything after the | pipe character in each line
+sed 's/|.*//' names.txt > ids.txt
 
 
 
