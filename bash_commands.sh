@@ -33,6 +33,9 @@ sed -n -e "1,400p" ITS_R1_otus_numbered.fasta > otus_NCBI.fasta
 ## Count the total number of bases in a FASTA file
 grep -v ">" imputfile.fasta | wc | awk '{print $3 - $1}'
 
+## calculating sequence length in a .fasta file
+awk '/^>/{if (l!="") print l; print; l=0; next}{l+=length($0)}END{print l}' 2889205932.fna 
+
 ## Count sequences length inside a .fastq file 
 cat imputfile.fastq | awk '{if(NR%4==2) print length($1)}' > seqsfastq_length.txt
 cat imputfile.fasta | awk '{if(NR%4==0) print length($1)}' > seqsfasta_length.txt
