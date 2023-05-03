@@ -64,5 +64,7 @@ done
 # select sequences using headers
 sed 's/[^a-zA-Z 0-9]/\\&/g' id_file.txt | sed 's/\>$/\$\[^\>\]\*/'| pcregrep -M -f /dev/stdin sequences.fasta
 
+name="header name"
+cat sequences.fasta | awk -v RS="\n>" -v FS="\n" -v name="${name}" '$1==name {print ">" $0}'
 
 
