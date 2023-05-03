@@ -61,7 +61,8 @@ for f in *fastq
 do sed '/^@/s/_/\./' "$f" > "$f.new"  &&  mv "$f.new" "$f"
 done
 
-
+# select sequences using headers
+sed 's/[^a-zA-Z 0-9]/\\&/g' id_file.txt | sed 's/\>$/\$\[^\>\]\*/'| pcregrep -M -f /dev/stdin sequences.fasta
 
 
 
