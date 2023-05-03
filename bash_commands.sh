@@ -108,6 +108,7 @@ find SRA_R2_ITS/ -name '*.fastq' | wc -l
 
 ## Linearize your sequences i.e. remove the sequence wrapping
 sed -e 's/\(^>.*$\)/#\1#/' file.fasta | tr -d "\r" | tr -d "\n" | sed -e 's/$/#/' | tr "#" "\n" | sed -e '/^$/d'
+cat file.fasta | awk '/^>/ {printf("%s%s\n",(N>0?"\n":""),$0);N++;next;} {printf("%s",$0);} END {printf("\n");}'
 
 ## convert tab-delimited to csv
 tr "\\t" "," < otu_table.txt > otu_table.csv
