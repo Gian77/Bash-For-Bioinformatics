@@ -45,8 +45,7 @@ cat imputfile.fasta | awk '{if(NR%%4==2) print length(\$1)}' | sort -c
 for i in $(ls *.fasta); do grep -c "^>" $i; done
 for i in `ls *.fastq.gz`; do echo $(zcat ${i} | wc -l)/4|bc; done
 
-## give the mean of the lenght of the seqs contained in a .fasta file
-awk '{/>/&&++a||b+=length()}END{print b/a}' seqs.fna 
+
 
 ## Convert .fasta and .qual to .fastq 
 for i in $(ls *.fasta);
@@ -76,8 +75,6 @@ echo "scale=1; 1/2" | bc ## this is for floating numbers
 ## Replace spaces in file names with underscore
 rename ' ' '_' *
 
-## Rename sequence header using awk
-awk '/^>/{print ">whateveryouwant" ++i; next}{print}' < file.fasta
 
 # remove evrything after the first <character>,in this case |
 cut -d '|' -f 1 < file.fastq 
@@ -118,12 +115,10 @@ for fastq in *assembled.fastq; do echo "$fastq : `grep -c "^+$" $fastq`"; done >
 for gz in *R1_001.fastq.gz; do echo "$gz : `gunzip -c $gz | grep -c "^+$"`"; done > raw_reads_R1.counts
 
 # remove column 3 of a .txt file
-awk '!($3="")' file1 > file2.txt
 cut -f1,1,3- file1.txt > file2.txt 
 
-# rearragne columns and invert postions, using tab as a comun delimiter 
-awk 'BEGIN {OFS="\t"}; '{ print $1,$2,$3,$4,$15 " " $14}' file1.txt > file2.txt
 
+ 
 # primtimg linearizied fzcat *R1_ITS.fastq | echo $((`wc -l`/4))
 astq
 zcat raw_data.fastq.gz | paste - - - - | head
